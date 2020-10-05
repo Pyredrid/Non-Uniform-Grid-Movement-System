@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/debug_normals.png-f1692a34d529a0e707c0adb15adc6af4.s3tc.stex"
+path.etc2="res://.import/debug_normals.png-f1692a34d529a0e707c0adb15adc6af4.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://graphics/textures/debug_normals.png"
+dest_files=[ "res://.import/debug_normals.png-f1692a34d529a0e707c0adb15adc6af4.s3tc.stex", "res://.import/debug_normals.png-f1692a34d529a0e707c0adb15adc6af4.etc2.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=1
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

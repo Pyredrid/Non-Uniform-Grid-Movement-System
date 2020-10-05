@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Tools</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFE3BA18-22F8-45BC-856E-C1CE8C1374EB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <OutputPath>.mono/temp/bin/$(Configuration)</OutputPath>
+    <RootNamespace>NonUniformGridMovement</RootNamespace>
+    <AssemblyName>Non-Uniform Grid Movement</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <GodotProjectGeneratorVersion>1.0.7374.17554</GodotProjectGeneratorVersion>
+    <BaseIntermediateOutputPath>.mono/temp/obj</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)/$(Configuration)</IntermediateOutputPath>
+    <ApiConfiguration Condition=" '$(Configuration)' != 'Release' ">Debug</ApiConfiguration>
+    <ApiConfiguration Condition=" '$(Configuration)' == 'Release' ">Release</ApiConfiguration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Tools|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;DEBUG;TOOLS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GodotSharp">
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GodotSharpEditor" Condition=" '$(Configuration)' == 'Tools' ">
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharpEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addons\Gizmo_MapNode\Gizmo_MapNode.cs" />
+    <Compile Include="addons\Gizmo_MapNode\MapNodeGizmo.cs" />
+    <Compile Include="Code\Extensions\GraphicalExtensions.cs" />
+    <Compile Include="Code\Extensions\NodeExtensions.cs" />
+    <Compile Include="Code\Extensions\RandomExtensions.cs" />
+    <Compile Include="Code\Extensions\SpatialExtensions.cs" />
+    <Compile Include="Code\Extensions\VectorExtensions.cs" />
+    <Compile Include="Code\Scripts\Character%20Controllers\CharacterController.cs" />
+    <Compile Include="Code\Scripts\Character%20Controllers\FlyCam.cs" />
+    <Compile Include="Code\Scripts\Character%20Controllers\PlayerInput.cs" />
+    <Compile Include="Code\Scripts\Character%20Controllers\WanderInput.cs" />
+    <Compile Include="Code\Scripts\Constraints\EnforceUp.cs" />
+    <Compile Include="Code\Scripts\Editor%20Tools\MapNodeGridGenerator.cs" />
+    <Compile Include="Code\Scripts\Editor%20Tools\MapNodeSpiralGenerator.cs" />
+    <Compile Include="Code\Scripts\General\Direction.cs" />
+    <Compile Include="Code\Scripts\Map\Map.cs" />
+    <Compile Include="Code\Scripts\Map\MapManager.cs" />
+    <Compile Include="Code\Scripts\Map\MapNode.cs" />
+    <Compile Include="Code\Scripts\Map\MapObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code\Scripts\General\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

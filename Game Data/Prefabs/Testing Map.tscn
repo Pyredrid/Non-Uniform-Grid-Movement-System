@@ -1,0 +1,2276 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Code/Scripts/Map/Map.cs" type="Script" id=1]
+[ext_resource path="res://Code/Scripts/Map/MapNode.cs" type="Script" id=2]
+[ext_resource path="res://Game Data/Prefabs/AI Wander Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Graphics/Materials/Debug.tres" type="Material" id=4]
+[ext_resource path="res://Graphics/Models/Spiral.obj" type="ArrayMesh" id=5]
+
+[sub_resource type="CapsuleMesh" id=1]
+radius = 0.35
+mid_height = 2.0
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0, 0.439216, 1, 1 )
+emission_enabled = true
+emission = Color( 0, 0.439216, 1, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.607843, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.607843, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 1, 1, 1 )
+
+[node name="Testing Map" type="Node"]
+script = ExtResource( 1 )
+MapName = "Testing Map"
+
+[node name="Platform Nodes" type="Node" parent="."]
+
+[node name="Map Node(0, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 1)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 2)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 3)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 4)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 5)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 6)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 7)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 6)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 8)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 8)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, 4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 7)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 8)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(0, 9)")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(0, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(0, 8)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(1, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("")
+
+[node name="Map Node(1, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 0)")
+
+[node name="Map Node(1, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 1)")
+
+[node name="Map Node(1, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 2)")
+
+[node name="Map Node(1, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 3)")
+
+[node name="Map Node(1, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 4)")
+
+[node name="Map Node(1, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 5)")
+
+[node name="Map Node(1, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 6)")
+
+[node name="Map Node(1, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 6)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 8)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 7)")
+
+[node name="Map Node(1, 8)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, 4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 7)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 8)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(1, 9)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 8)")
+
+[node name="Map Node(1, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(1, 8)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(2, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(0, 9)")
+
+[node name="Map Node(2, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 0)")
+
+[node name="Map Node(2, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 1)")
+
+[node name="Map Node(2, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 2)")
+
+[node name="Map Node(2, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 3)")
+
+[node name="Map Node(2, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 4)")
+
+[node name="Map Node(2, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 5)")
+
+[node name="Map Node(2, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 6)")
+
+[node name="Map Node(2, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 6)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 8)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 7)")
+
+[node name="Map Node(2, 8)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, 4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(2, 9)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 8)")
+
+[node name="Map Node(2, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(2, 8)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(3, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(1, 9)")
+
+[node name="Map Node(3, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(3, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 0)")
+
+[node name="Map Node(3, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(3, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(3, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 1)")
+
+[node name="Map Node(3, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(3, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(3, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 2)")
+
+[node name="Map Node(3, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(3, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(3, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 3)")
+
+[node name="Map Node(3, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(3, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(3, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 4)")
+
+[node name="Map Node(3, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(3, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(3, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 5)")
+
+[node name="Map Node(3, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(3, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(3, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 6)")
+
+[node name="Map Node(3, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 7)")
+
+[node name="Map Node(3, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../../Platform Nodes/Map Node(4, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(2, 9)")
+
+[node name="Map Node(4, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 0)")
+
+[node name="Map Node(4, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 1)")
+
+[node name="Map Node(4, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 2)")
+
+[node name="Map Node(4, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 3)")
+
+[node name="Map Node(4, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 4)")
+
+[node name="Map Node(4, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 5)")
+
+[node name="Map Node(4, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 6)")
+
+[node name="Map Node(4, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 6)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 8)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 7)")
+
+[node name="Map Node(4, 8)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, 4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 7)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 8)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(4, 9)")
+
+[node name="Map Node(4, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(4, 8)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(5, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(3, 9)")
+
+[node name="Map Node(5, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 0)")
+
+[node name="Map Node(5, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 1)")
+
+[node name="Map Node(5, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 2)")
+
+[node name="Map Node(5, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 3)")
+
+[node name="Map Node(5, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 4)")
+
+[node name="Map Node(5, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 5)")
+
+[node name="Map Node(5, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 6)")
+
+[node name="Map Node(5, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 6)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 8)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 7)")
+
+[node name="Map Node(5, 8)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, 4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 7)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 8)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(5, 9)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 8)")
+
+[node name="Map Node(5, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(5, 8)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(6, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(4, 9)")
+
+[node name="Map Node(6, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 0)")
+
+[node name="Map Node(6, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 1)")
+
+[node name="Map Node(6, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 2)")
+
+[node name="Map Node(6, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 3)")
+
+[node name="Map Node(6, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 4)")
+
+[node name="Map Node(6, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 5)")
+
+[node name="Map Node(6, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 6)")
+
+[node name="Map Node(6, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 6)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 8)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 7)")
+
+[node name="Map Node(6, 8)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, 4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 7)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 8)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(6, 9)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 8)")
+
+[node name="Map Node(6, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(6, 8)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(7, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(5, 9)")
+
+[node name="Map Node(7, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 0)")
+
+[node name="Map Node(7, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 1)")
+
+[node name="Map Node(7, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 2)")
+
+[node name="Map Node(7, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 3)")
+
+[node name="Map Node(7, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 4)")
+
+[node name="Map Node(7, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 5)")
+
+[node name="Map Node(7, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 6)")
+
+[node name="Map Node(7, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 6)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 8)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 7)")
+
+[node name="Map Node(7, 8)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, 4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 7)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(7, 9)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 8)")
+
+[node name="Map Node(7, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(7, 8)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(8, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(6, 9)")
+
+[node name="Map Node(8, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(8, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 0)")
+
+[node name="Map Node(8, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(8, 0)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 1)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(8, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 1)")
+
+[node name="Map Node(8, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(8, 1)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 2)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(8, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 2)")
+
+[node name="Map Node(8, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(8, 2)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 3)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(8, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 3)")
+
+[node name="Map Node(8, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(8, 3)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 4)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(8, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 4)")
+
+[node name="Map Node(8, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(8, 4)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 5)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(8, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 5)")
+
+[node name="Map Node(8, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(8, 5)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 6)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(8, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 6)")
+
+[node name="Map Node(8, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(8, 6)")
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 7)")
+
+[node name="Map Node(8, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../../Platform Nodes/Map Node(9, 9)")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(7, 9)")
+
+[node name="Map Node(9, 0)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, -4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("")
+NodePathRight = NodePath("../../Spiral Nodes/Spiral Node (x 0) (step 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 0)")
+
+[node name="Map Node(9, 1)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, -3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 0)")
+NodePathRight = NodePath("../../Spiral Nodes/Spiral Node (x 1) (step 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 2)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 1)")
+
+[node name="Map Node(9, 2)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, -2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 1)")
+NodePathRight = NodePath("../../Spiral Nodes/Spiral Node (x 2) (step 0)")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 3)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 2)")
+
+[node name="Map Node(9, 3)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, -1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 2)")
+NodePathRight = NodePath("")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 4)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 3)")
+
+[node name="Map Node(9, 4)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, 0 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 3)")
+NodePathRight = NodePath("")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 5)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 4)")
+
+[node name="Map Node(9, 5)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, 1 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 4)")
+NodePathRight = NodePath("")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 6)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 5)")
+
+[node name="Map Node(9, 6)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, 2 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 5)")
+NodePathRight = NodePath("")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 7)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 6)")
+
+[node name="Map Node(9, 7)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, 3 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 6)")
+NodePathRight = NodePath("")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 8)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 7)")
+
+[node name="Map Node(9, 8)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, 4 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 7)")
+NodePathRight = NodePath("")
+NodePathDown = NodePath("../../Platform Nodes/Map Node(9, 9)")
+
+[node name="Map Node(9, 9)" type="Spatial" parent="Platform Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.0203478, 5 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../../Platform Nodes/Map Node(9, 8)")
+NodePathRight = NodePath("")
+NodePathDown = NodePath("")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(8, 9)")
+
+[node name="Spiral Nodes" type="Node" parent="."]
+
+[node name="Spiral Node (x 0) (step 0)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.11678, 0, 0.135727, 0, 1, 0, -0.135727, 0, 1.11678, 5.90636, 0.114048, -4.1564 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 1)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 0)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(9, 0)")
+
+[node name="Spiral Node (x 1) (step 0)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.11672, 0, 0.136225, 0, 1, 0, -0.136225, 0, 1.11672, 6.04408, 0.114048, -3.03986 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 0)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 1)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 0)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(9, 1)")
+
+[node name="Spiral Node (x 2) (step 0)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.11669, 0, 0.136522, 0, 1, 0, -0.136522, 0, 1.11669, 6.18179, 0.114048, -1.92332 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 0)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 1)")
+NodePathLeft = NodePath("../../Platform Nodes/Map Node(9, 2)")
+
+[node name="Spiral Node (x 0) (step 1)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.05012, 0, 0.403587, 0, 1, 0, -0.403587, 0, 1.05012, 6.70787, 0.317173, -4.35717 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 2)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 1)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 0)")
+
+[node name="Spiral Node (x 1) (step 1)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.04999, 0, 0.403911, 0, 1, 0, -0.403911, 0, 1.04999, 7.11275, 0.317173, -3.30755 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 1)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 2)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 1)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 0)")
+
+[node name="Spiral Node (x 2) (step 1)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.04992, 0, 0.404106, 0, 1, 0, -0.404106, 0, 1.04992, 7.51764, 0.317173, -2.25794 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 1)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 2)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 0)")
+
+[node name="Spiral Node (x 0) (step 2)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.920181, 0, 0.647218, 0, 1, 0, -0.647218, 0, 0.920181, 7.43658, 0.520298, -4.74667 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 3)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 2)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 1)")
+
+[node name="Spiral Node (x 1) (step 2)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.920081, 0, 0.64736, 0, 1, 0, -0.64736, 0, 0.920081, 8.08436, 0.520298, -3.82689 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 2)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 3)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 2)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 1)")
+
+[node name="Spiral Node (x 2) (step 2)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.920021, 0, 0.647445, 0, 1, 0, -0.647445, 0, 0.920021, 8.73215, 0.520298, -2.90711 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 2)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 3)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 1)")
+
+[node name="Spiral Node (x 0) (step 3)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.734785, 0, 0.851889, 0, 1, 0, -0.851889, 0, 0.734785, 8.04881, 0.723423, -5.30156 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 4)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 3)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 2)")
+
+[node name="Spiral Node (x 1) (step 3)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.734794, 0, 0.851882, 0, 1, 0, -0.851882, 0, 0.734794, 8.90067, 0.723423, -4.56674 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 3)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 4)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 3)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 2)")
+
+[node name="Spiral Node (x 2) (step 3)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.734799, 0, 0.851878, 0, 1, 0, -0.851878, 0, 0.734799, 9.75253, 0.723423, -3.83192 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 3)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 4)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 2)")
+
+[node name="Spiral Node (x 0) (step 4)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.505116, 0, 1.00523, 0, 1, 0, -1.00523, 0, 0.505116, 8.50786, 0.926548, -5.98858 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 5)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 4)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 3)")
+
+[node name="Spiral Node (x 1) (step 4)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.505291, 0, 1.00514, 0, 1, 0, -1.00514, 0, 0.505291, 9.51274, 0.926548, -5.48277 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 4)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 5)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 4)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 3)")
+
+[node name="Spiral Node (x 2) (step 4)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.505395, 0, 1.00509, 0, 1, 0, -1.00509, 0, 0.505395, 10.5176, 0.926548, -4.97696 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 4)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 5)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 3)")
+
+[node name="Spiral Node (x 0) (step 5)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.245057, 0, 1.09799, 0, 1, 0, -1.09799, 0, 0.245057, 8.78622, 1.12967, -6.76655 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 6)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 5)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 4)")
+
+[node name="Spiral Node (x 1) (step 5)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.245416, 0, 1.09791, 0, 1, 0, -1.09791, 0, 0.245416, 9.88389, 1.12967, -6.52007 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 5)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 6)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 5)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 4)")
+
+[node name="Spiral Node (x 2) (step 5)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.245631, 0, 1.09786, 0, 1, 0, -1.09786, 0, 0.245631, 10.9816, 1.12967, -6.27358 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 5)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 6)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 4)")
+
+[node name="Spiral Node (x 0) (step 6)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.0296741, 0, 1.12461, 0, 1, 0, -1.12461, 0, -0.0296741, 8.86721, 1.3328, -7.58885 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 7)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 6)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 5)")
+
+[node name="Spiral Node (x 1) (step 6)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.0291569, 0, 1.12462, 0, 1, 0, -1.12462, 0, -0.0291569, 9.99187, 1.3328, -7.61646 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 6)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 7)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 6)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 5)")
+
+[node name="Spiral Node (x 2) (step 6)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.0288471, 0, 1.12463, 0, 1, 0, -1.12463, 0, -0.0288471, 11.1165, 1.3328, -7.64407 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 6)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 7)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 5)")
+
+[node name="Spiral Node (x 0) (step 7)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.302499, 0, 1.08357, 0, 1, 0, -1.08357, 0, -0.302499, 8.74597, 1.53593, -8.40618 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 8)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 7)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 6)")
+
+[node name="Spiral Node (x 1) (step 7)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.301887, 0, 1.08374, 0, 1, 0, -1.08374, 0, -0.301887, 9.83022, 1.53593, -8.70623 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 7)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 8)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 7)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 6)")
+
+[node name="Spiral Node (x 2) (step 7)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.30152, 0, 1.08384, 0, 1, 0, -1.08384, 0, -0.30152, 10.9145, 1.53593, -9.00628 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 7)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 8)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 6)")
+
+[node name="Spiral Node (x 0) (step 8)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.556999, 0, 0.977434, 0, 1, 0, -0.977434, 0, -0.556999, 8.42977, 1.73905, -9.16955 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 9)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 8)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 7)")
+
+[node name="Spiral Node (x 1) (step 8)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.556377, 0, 0.977788, 0, 1, 0, -0.977788, 0, -0.556377, 9.40862, 1.73905, -9.72406 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 8)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 9)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 8)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 7)")
+
+[node name="Spiral Node (x 2) (step 8)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.556003, 0, 0.978001, 0, 1, 0, -0.978001, 0, -0.556003, 10.3875, 1.73905, -10.2786 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 8)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 9)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 7)")
+
+[node name="Spiral Node (x 0) (step 9)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.777911, 0, 0.812699, 0, 1, 0, -0.812699, 0, -0.777911, 7.93756, 1.94217, -9.83322 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 10)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 9)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 8)")
+
+[node name="Spiral Node (x 1) (step 9)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.777367, 0, 0.813219, 0, 1, 0, -0.813219, 0, -0.777367, 8.75234, 1.94217, -10.609 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 9)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 10)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 9)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 8)")
+
+[node name="Spiral Node (x 2) (step 9)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.77704, 0, 0.813531, 0, 1, 0, -0.813531, 0, -0.77704, 9.56712, 1.94217, -11.3847 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 9)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 10)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 8)")
+
+[node name="Spiral Node (x 0) (step 10)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.952051, 0, 0.599353, 0, 1, 0, -0.599353, 0, -0.952051, 7.29884, 2.1453, -10.3574 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 11)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 10)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 9)")
+
+[node name="Spiral Node (x 1) (step 10)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.951654, 0, 0.599983, 0, 1, 0, -0.599983, 0, -0.951654, 7.90072, 2.1453, -11.3079 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 10)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 11)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 10)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 9)")
+
+[node name="Spiral Node (x 2) (step 10)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.951416, 0, 0.600361, 0, 1, 0, -0.600361, 0, -0.951416, 8.50259, 2.1453, -12.2583 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 10)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 11)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 9)")
+
+[node name="Spiral Node (x 0) (step 11)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.06909, 0, 0.35026, 0, 1, 0, -0.35026, 0, -1.06909, 6.5519, 2.34843, -10.7107 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 12)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 11)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 10)")
+
+[node name="Spiral Node (x 1) (step 11)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.06887, 0, 0.350918, 0, 1, 0, -0.350918, 0, -1.06887, 6.90479, 2.34843, -11.7789 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 11)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 12)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 11)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 10)")
+
+[node name="Spiral Node (x 2) (step 11)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.06874, 0, 0.351312, 0, 1, 0, -0.351312, 0, -1.06874, 7.25769, 2.34843, -12.8471 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 11)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 12)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 10)")
+
+[node name="Spiral Node (x 0) (step 12)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.12213, 0, 0.0803706, 0, 1, 0, -0.0803706, 0, -1.12213, 5.74151, 2.55155, -10.8719 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 13)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 12)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 11)")
+
+[node name="Spiral Node (x 1) (step 12)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.12208, 0, 0.0809675, 0, 1, 0, -0.0809675, 0, -1.12208, 5.82427, 2.55155, -11.9938 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 12)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 13)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 12)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 11)")
+
+[node name="Spiral Node (x 2) (step 12)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.12206, 0, 0.0813256, 0, 1, 0, -0.0813256, 0, -1.12206, 5.90703, 2.55155, -13.1158 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 12)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 13)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 11)")
+
+[node name="Spiral Node (x 0) (step 13)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.10811, 0, -0.194182, 0, 1, 0, 0.194182, 0, -1.10811, 4.91623, 2.75468, -10.8313 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 14)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 13)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 12)")
+
+[node name="Spiral Node (x 1) (step 13)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.1082, 0, -0.19372, 0, 1, 0, 0.19372, 0, -1.1082, 4.7239, 2.75468, -11.9398 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 13)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 14)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 13)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 12)")
+
+[node name="Spiral Node (x 2) (step 13)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.10824, 0, -0.193443, 0, 1, 0, 0.193443, 0, -1.10824, 4.53156, 2.75468, -13.0482 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 13)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 14)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 12)")
+
+[node name="Spiral Node (x 0) (step 14)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.02798, 0, -0.457037, 0, 1, 0, 0.457037, 0, -1.02798, 4.12554, 2.9578, -10.5915 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 15)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 14)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 13)")
+
+[node name="Spiral Node (x 1) (step 14)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.02811, 0, -0.456753, 0, 1, 0, 0.456753, 0, -1.02811, 3.66964, 2.9578, -11.62 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 14)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 15)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 14)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 13)")
+
+[node name="Spiral Node (x 2) (step 14)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.02818, 0, -0.456582, 0, 1, 0, 0.456582, 0, -1.02818, 3.21374, 2.9578, -12.6485 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 14)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 15)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 13)")
+
+[node name="Spiral Node (x 0) (step 15)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.886555, 0, -0.692564, 0, 1, 0, 0.692564, 0, -0.886555, 3.41682, 3.16093, -10.1667 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 16)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 15)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 14)")
+
+[node name="Spiral Node (x 1) (step 15)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.886638, 0, -0.692458, 0, 1, 0, 0.692458, 0, -0.886638, 2.72468, 3.16093, -11.0536 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 15)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 16)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 15)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 14)")
+
+[node name="Spiral Node (x 2) (step 15)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.886689, 0, -0.692393, 0, 1, 0, 0.692393, 0, -0.886689, 2.03255, 3.16093, -11.9405 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 15)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 16)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 14)")
+
+[node name="Spiral Node (x 0) (step 16)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.692287, 0, -0.886771, 0, 1, 0, 0.886771, 0, -0.692287, 2.83256, 3.36405, -9.58243 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 17)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 16)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 15)")
+
+[node name="Spiral Node (x 1) (step 16)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.692249, 0, -0.886801, 0, 1, 0, 0.886801, 0, -0.692249, 1.94567, 3.36405, -10.2746 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 16)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 17)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 16)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 15)")
+
+[node name="Spiral Node (x 2) (step 16)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.692227, 0, -0.886819, 0, 1, 0, 0.886819, 0, -0.692227, 1.05878, 3.36405, -10.9667 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 16)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 17)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 15)")
+
+[node name="Spiral Node (x 0) (step 17)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.456735, 0, -1.02811, 0, 1, 0, 1.02811, 0, -0.456735, 2.40777, 3.56718, -8.87371 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 18)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 17)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 16)")
+
+[node name="Spiral Node (x 1) (step 17)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.456526, 0, -1.02821, 0, 1, 0, 1.02821, 0, -0.456526, 1.37928, 3.56718, -9.32961 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 17)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 18)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 17)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 16)")
+
+[node name="Spiral Node (x 2) (step 17)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.4564, 0, -1.02826, 0, 1, 0, 1.02826, 0, -0.4564, 0.350797, 3.56718, -9.7855 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 17)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 18)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 16)")
+
+[node name="Spiral Node (x 0) (step 18)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.193896, 0, -1.10816, 0, 1, 0, 1.10816, 0, -0.193896, 2.16791, 3.7703, -8.08302 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 19)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 18)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 17)")
+
+[node name="Spiral Node (x 1) (step 18)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.193505, 0, -1.10823, 0, 1, 0, 1.10823, 0, -0.193505, 1.05948, 3.7703, -8.27535 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 18)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 19)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 18)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 17)")
+
+[node name="Spiral Node (x 2) (step 18)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.193271, 0, -1.10827, 0, 1, 0, 1.10827, 0, -0.193271, -0.0489607, 3.7703, -8.46768 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 18)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 19)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 17)")
+
+[node name="Spiral Node (x 0) (step 19)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.080603, 0, -1.12211, 0, 1, 0, 1.12211, 0, 0.080603, 2.12737, 3.97343, -7.25774 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 20)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 19)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 18)")
+
+[node name="Spiral Node (x 1) (step 19)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.0811416, 0, -1.12207, 0, 1, 0, 1.12207, 0, 0.0811416, 1.00542, 3.97343, -7.17498 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 19)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 20)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 19)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 18)")
+
+[node name="Spiral Node (x 2) (step 19)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.0814652, 0, -1.12205, 0, 1, 0, 1.12205, 0, 0.0814652, -0.116532, 3.97343, -7.09222 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 19)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 20)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 18)")
+
+[node name="Spiral Node (x 0) (step 20)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.350413, 0, -1.06903, 0, 1, 0, 1.06903, 0, 0.350413, 2.28857, 4.17655, -6.44734 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 21)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 20)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 19)")
+
+[node name="Spiral Node (x 1) (step 20)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.351032, 0, -1.06883, 0, 1, 0, 1.06883, 0, 0.351032, 1.22035, 4.17655, -6.09445 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 20)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 21)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 20)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 19)")
+
+[node name="Spiral Node (x 2) (step 20)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.351404, 0, -1.06871, 0, 1, 0, 1.06871, 0, 0.351404, 0.152132, 4.17655, -5.74156 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 20)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 21)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 19)")
+
+[node name="Spiral Node (x 0) (step 21)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.59942, 0, -0.952009, 0, 1, 0, 0.952009, 0, 0.59942, 2.64185, 4.37968, -5.7004 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 22)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 21)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 20)")
+
+[node name="Spiral Node (x 1) (step 21)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.600033, 0, -0.951623, 0, 1, 0, 0.951623, 0, 0.600033, 1.69139, 4.37968, -5.09853 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 21)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 22)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 21)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 20)")
+
+[node name="Spiral Node (x 2) (step 21)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.600401, 0, -0.95139, 0, 1, 0, 0.95139, 0, 0.600401, 0.740928, 4.37968, -4.49666 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 21)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 22)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 20)")
+
+[node name="Spiral Node (x 0) (step 22)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.812694, 0, -0.777916, 0, 1, 0, 0.777916, 0, 0.812694, 3.16603, 4.5828, -5.06169 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 23)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 22)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 21)")
+
+[node name="Spiral Node (x 1) (step 22)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.813215, 0, -0.777371, 0, 1, 0, 0.777371, 0, 0.813215, 2.3903, 4.5828, -4.24691 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 22)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 23)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 22)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 21)")
+
+[node name="Spiral Node (x 2) (step 22)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.813528, 0, -0.777044, 0, 1, 0, 0.777044, 0, 0.813528, 1.61456, 4.5828, -3.43213 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 22)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 23)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 21)")
+
+[node name="Spiral Node (x 0) (step 23)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.977388, 0, -0.557079, 0, 1, 0, 0.557079, 0, 0.977388, 3.8297, 4.78593, -4.56948 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 24)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 23)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 22)")
+
+[node name="Spiral Node (x 1) (step 23)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.977754, 0, -0.556437, 0, 1, 0, 0.556437, 0, 0.977754, 3.27519, 4.78593, -3.59063 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 23)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 24)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 23)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 22)")
+
+[node name="Spiral Node (x 2) (step 23)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.977973, 0, -0.556052, 0, 1, 0, 0.556052, 0, 0.977973, 2.72068, 4.78593, -2.61178 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 23)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 24)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 22)")
+
+[node name="Spiral Node (x 0) (step 24)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.08352, 0, -0.302667, 0, 1, 0, 0.302667, 0, 1.08352, 4.59307, 4.98905, -4.25328 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 25)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 24)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 23)")
+
+[node name="Spiral Node (x 1) (step 24)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.0837, 0, -0.302013, 0, 1, 0, 0.302013, 0, 1.0837, 4.29302, 4.98905, -3.16903 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 24)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 25)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 24)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 23)")
+
+[node name="Spiral Node (x 2) (step 24)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.08381, 0, -0.30162, 0, 1, 0, 0.30162, 0, 1.08381, 3.99297, 4.98905, -2.08478 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 24)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 25)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 23)")
+
+[node name="Spiral Node (x 0) (step 25)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.1246, 0, -0.0299179, 0, 1, 0, 0.0299179, 0, 1.1246, 5.4104, 5.19218, -4.13204 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 26)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 25)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 24)")
+
+[node name="Spiral Node (x 1) (step 25)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.12462, 0, -0.0293398, 0, 1, 0, 0.0293398, 0, 1.12462, 5.38279, 5.19218, -3.00738 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 25)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 26)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 25)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 24)")
+
+[node name="Spiral Node (x 2) (step 25)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.12463, 0, -0.028993, 0, 1, 0, 0.028993, 0, 1.12463, 5.35519, 5.19218, -1.88272 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 25)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 26)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 24)")
+
+[node name="Spiral Node (x 0) (step 26)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.09805, 0, 0.244765, 0, 1, 0, -0.244765, 0, 1.09805, 6.2327, 5.3953, -4.21303 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 27)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 26)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 25)")
+
+[node name="Spiral Node (x 1) (step 26)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.09795, 0, 0.245197, 0, 1, 0, -0.245197, 0, 1.09795, 6.47919, 5.3953, -3.11536 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 26)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 27)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 26)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 25)")
+
+[node name="Spiral Node (x 2) (step 26)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.0979, 0, 0.245456, 0, 1, 0, -0.245456, 0, 1.0979, 6.72567, 5.3953, -2.0177 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 26)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 27)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 25)")
+
+[node name="Spiral Node (x 0) (step 27)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.00538, 0, 0.504815, 0, 1, 0, -0.504815, 0, 1.00538, 7.01067, 5.59843, -4.49139 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 28)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 27)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 26)")
+
+[node name="Spiral Node (x 1) (step 27)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.00525, 0, 0.505065, 0, 1, 0, -0.505065, 0, 1.00525, 7.51648, 5.59843, -3.48651 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 27)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 28)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 27)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 26)")
+
+[node name="Spiral Node (x 2) (step 27)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.00518, 0, 0.505215, 0, 1, 0, -0.505215, 0, 1.00518, 8.02229, 5.59843, -2.48164 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 27)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 28)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 26)")
+
+[node name="Spiral Node (x 0) (step 28)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.852121, 0, 0.734517, 0, 1, 0, -0.734517, 0, 0.852121, 7.69769, 5.80155, -4.95044 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 29)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 28)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 27)")
+
+[node name="Spiral Node (x 1) (step 28)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.852055, 0, 0.734593, 0, 1, 0, -0.734593, 0, 0.852055, 8.43251, 5.80155, -4.09858 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 28)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 29)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 28)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 27)")
+
+[node name="Spiral Node (x 2) (step 28)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.852016, 0, 0.734638, 0, 1, 0, -0.734638, 0, 0.852016, 9.16733, 5.80155, -3.24672 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 28)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 29)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 27)")
+
+[node name="Spiral Node (x 0) (step 29)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.647505, 0, 0.91998, 0, 1, 0, -0.91998, 0, 0.647505, 8.25258, 6.00468, -5.56267 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 30)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 29)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 28)")
+
+[node name="Spiral Node (x 1) (step 29)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.647574, 0, 0.919931, 0, 1, 0, -0.919931, 0, 0.647574, 9.17236, 6.00468, -4.91489 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 29)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 30)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 29)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 28)")
+
+[node name="Spiral Node (x 2) (step 29)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.647616, 0, 0.919901, 0, 1, 0, -0.919901, 0, 0.647616, 10.0921, 6.00468, -4.2671 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 29)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 30)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 28)")
+
+[node name="Spiral Node (x 0) (step 30)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.40389, 0, 1.05, 0, 1, 0, -1.05, 0, 0.40389, 8.64208, 6.2078, -6.29138 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 31)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 30)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 29)")
+
+[node name="Spiral Node (x 1) (step 30)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.404138, 0, 1.0499, 0, 1, 0, -1.0499, 0, 0.404138, 9.6917, 6.2078, -5.88649 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 30)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 31)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 30)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 29)")
+
+[node name="Spiral Node (x 2) (step 30)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.404287, 0, 1.04985, 0, 1, 0, -1.04985, 0, 0.404287, 10.7413, 6.2078, -5.48161 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 30)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 31)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 29)")
+
+[node name="Spiral Node (x 0) (step 31)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.136005, 0, 1.11675, 0, 1, 0, -1.11675, 0, 0.136005, 8.84285, 6.41093, -7.09289 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 32)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 31)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 30)")
+
+[node name="Spiral Node (x 1) (step 31)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.136432, 0, 1.1167, 0, 1, 0, -1.1167, 0, 0.136432, 9.95938, 6.41093, -6.95518 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 31)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 32)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 31)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 30)")
+
+[node name="Spiral Node (x 2) (step 31)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.136689, 0, 1.11667, 0, 1, 0, -1.11667, 0, 0.136689, 11.0759, 6.41093, -6.81746 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 31)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 32)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 30)")
+
+[node name="Spiral Node (x 0) (step 32)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.139967, 0, 1.11626, 0, 1, 0, -1.11626, 0, -0.139967, 8.84285, 6.61405, -7.91916 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 33)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 32)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 31)")
+
+[node name="Spiral Node (x 1) (step 32)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.139403, 0, 1.11633, 0, 1, 0, -1.11633, 0, -0.139403, 9.95938, 6.61405, -8.05687 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 32)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 33)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 32)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 31)")
+
+[node name="Spiral Node (x 2) (step 32)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.139065, 0, 1.11637, 0, 1, 0, -1.11637, 0, -0.139065, 11.0759, 6.61405, -8.19459 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 32)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 33)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 31)")
+
+[node name="Spiral Node (x 0) (step 33)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.407389, 0, 1.04865, 0, 1, 0, -1.04865, 0, -0.407389, 8.64208, 6.81718, -8.72067 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 34)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 33)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 32)")
+
+[node name="Spiral Node (x 1) (step 33)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.406762, 0, 1.04889, 0, 1, 0, -1.04889, 0, -0.406762, 9.69169, 6.81718, -9.12555 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 33)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 34)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 33)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 32)")
+
+[node name="Spiral Node (x 2) (step 33)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.406386, 0, 1.04904, 0, 1, 0, -1.04904, 0, -0.406386, 10.7413, 6.81718, -9.53043 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 33)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 34)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 32)")
+
+[node name="Spiral Node (x 0) (step 34)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.650188, 0, 0.918085, 0, 1, 0, -0.918085, 0, -0.650188, 8.25258, 7.0203, -9.44937 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 35)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 34)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 33)")
+
+[node name="Spiral Node (x 1) (step 34)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.649587, 0, 0.918511, 0, 1, 0, -0.918511, 0, -0.649587, 9.17236, 7.0203, -10.0972 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 34)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 35)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 34)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 33)")
+
+[node name="Spiral Node (x 2) (step 34)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.649227, 0, 0.918765, 0, 1, 0, -0.918765, 0, -0.649227, 10.0921, 7.0203, -10.7449 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 34)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 35)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 33)")
+
+[node name="Spiral Node (x 0) (step 35)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.85383, 0, 0.732529, 0, 1, 0, -0.732529, 0, -0.85383, 7.69768, 7.22343, -10.0616 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 36)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 35)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 34)")
+
+[node name="Spiral Node (x 1) (step 35)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.853338, 0, 0.733102, 0, 1, 0, -0.733102, 0, -0.853338, 8.4325, 7.22343, -10.9135 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 35)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 36)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 35)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 34)")
+
+[node name="Spiral Node (x 2) (step 35)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.853043, 0, 0.733446, 0, 1, 0, -0.733446, 0, -0.853043, 9.16732, 7.22343, -11.7653 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 35)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 36)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 34)")
+
+[node name="Spiral Node (x 0) (step 36)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.00619, 0, 0.503205, 0, 1, 0, -0.503205, 0, -1.00619, 7.01066, 7.42655, -10.5207 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 37)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 36)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 35)")
+
+[node name="Spiral Node (x 1) (step 36)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.00586, 0, 0.503857, 0, 1, 0, -0.503857, 0, -1.00586, 7.51648, 7.42655, -11.5255 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 36)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 37)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 36)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 35)")
+
+[node name="Spiral Node (x 2) (step 36)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.00566, 0, 0.504248, 0, 1, 0, -0.504248, 0, -1.00566, 8.02229, 7.42655, -12.5304 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 36)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 37)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 35)")
+
+[node name="Spiral Node (x 0) (step 37)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.09824, 0, 0.243912, 0, 1, 0, -0.243912, 0, -1.09824, 6.23269, 7.62968, -10.799 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 38)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 37)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 36)")
+
+[node name="Spiral Node (x 1) (step 37)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.0981, 0, 0.244555, 0, 1, 0, -0.244555, 0, -1.0981, 6.47918, 7.62968, -11.8967 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 37)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 38)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 37)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 36)")
+
+[node name="Spiral Node (x 2) (step 37)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.09801, 0, 0.244942, 0, 1, 0, -0.244942, 0, -1.09801, 6.72567, 7.62968, -12.9943 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 37)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 38)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 36)")
+
+[node name="Spiral Node (x 0) (step 38)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.1246, 0, -0.0298136, 0, 1, 0, 0.0298136, 0, -1.1246, 5.4104, 7.8328, -10.88 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 39)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 38)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 37)")
+
+[node name="Spiral Node (x 1) (step 38)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.12462, 0, -0.0292633, 0, 1, 0, 0.0292633, 0, -1.12462, 5.38279, 7.8328, -12.0047 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 38)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 39)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 38)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 37)")
+
+[node name="Spiral Node (x 2) (step 38)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.12463, 0, -0.0289327, 0, 1, 0, 0.0289327, 0, -1.12463, 5.35518, 7.8328, -13.1293 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 38)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 39)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 37)")
+
+[node name="Spiral Node (x 0) (step 39)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.08381, 0, -0.30163, 0, 1, 0, 0.30163, 0, -1.08381, 4.59307, 8.03593, -10.7588 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 40)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 39)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 38)")
+
+[node name="Spiral Node (x 1) (step 39)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.08392, 0, -0.301236, 0, 1, 0, 0.301236, 0, -1.08392, 4.29302, 8.03593, -11.843 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 39)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 40)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 39)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 38)")
+
+[node name="Spiral Node (x 2) (step 39)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.08399, 0, -0.301, 0, 1, 0, 0.301, 0, -1.08399, 3.99296, 8.03593, -12.9273 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 39)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 40)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 38)")
+
+[node name="Spiral Node (x 0) (step 40)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.978368, 0, -0.555357, 0, 1, 0, 0.555357, 0, -0.978368, 3.82969, 8.23905, -10.4426 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 41)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 40)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 39)")
+
+[node name="Spiral Node (x 1) (step 40)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.978487, 0, -0.555146, 0, 1, 0, 0.555146, 0, -0.978487, 3.27518, 8.23905, -11.4214 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 40)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 41)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 40)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 39)")
+
+[node name="Spiral Node (x 2) (step 40)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.978559, 0, -0.555019, 0, 1, 0, 0.555019, 0, -0.978559, 2.72067, 8.23905, -12.4003 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 40)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 41)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 39)")
+
+[node name="Spiral Node (x 0) (step 41)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.814604, 0, -0.775915, 0, 1, 0, 0.775915, 0, -0.814604, 3.16602, 8.44218, -9.95035 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 42)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 41)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 40)")
+
+[node name="Spiral Node (x 1) (step 41)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.814647, 0, -0.77587, 0, 1, 0, 0.77587, 0, -0.814647, 2.39029, 8.44218, -10.7651 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 41)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 42)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 41)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 40)")
+
+[node name="Spiral Node (x 2) (step 41)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.814674, 0, -0.775843, 0, 1, 0, 0.775843, 0, -0.814674, 1.61456, 8.44218, -11.5799 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 41)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 42)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 40)")
+
+[node name="Spiral Node (x 0) (step 42)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.602282, 0, -0.9502, 0, 1, 0, 0.9502, 0, -0.602282, 2.64184, 8.6453, -9.31164 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 43)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 42)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 41)")
+
+[node name="Spiral Node (x 1) (step 42)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.60218, 0, -0.950265, 0, 1, 0, 0.950265, 0, -0.60218, 1.69138, 8.6453, -9.91351 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 42)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 43)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 42)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 41)")
+
+[node name="Spiral Node (x 2) (step 42)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.602118, 0, -0.950305, 0, 1, 0, 0.950305, 0, -0.602118, 0.740923, 8.6453, -10.5154 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 42)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 43)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 41)")
+
+[node name="Spiral Node (x 0) (step 43)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.354025, 0, -1.06784, 0, 1, 0, 1.06784, 0, -0.354025, 2.28857, 8.84843, -8.5647 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 44)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 43)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 42)")
+
+[node name="Spiral Node (x 1) (step 43)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.353742, 0, -1.06794, 0, 1, 0, 1.06794, 0, -0.353742, 1.22035, 8.84843, -8.91759 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 43)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 44)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 43)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 42)")
+
+[node name="Spiral Node (x 2) (step 43)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.353572, 0, -1.06799, 0, 1, 0, 1.06799, 0, -0.353572, 0.15213, 8.84843, -9.27048 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 43)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 44)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 42)")
+
+[node name="Spiral Node (x 0) (step 44)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.0845848, 0, -1.12182, 0, 1, 0, 1.12182, 0, -0.0845848, 2.12737, 9.05155, -7.7543 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 45)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 44)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 43)")
+
+[node name="Spiral Node (x 1) (step 44)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.084129, 0, -1.12185, 0, 1, 0, 1.12185, 0, -0.084129, 1.00542, 9.05155, -7.83706 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 44)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 45)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 44)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 43)")
+
+[node name="Spiral Node (x 2) (step 44)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.0838555, 0, -1.12187, 0, 1, 0, 1.12187, 0, -0.0838555, -0.116532, 9.05155, -7.91981 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 44)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 45)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 43)")
+
+[node name="Spiral Node (x 0) (step 45)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.190008, 0, -1.10884, 0, 1, 0, 1.10884, 0, 0.190008, 2.16792, 9.25468, -6.92902 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 46)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 45)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 44)")
+
+[node name="Spiral Node (x 1) (step 45)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.190589, 0, -1.10874, 0, 1, 0, 1.10874, 0, 0.190589, 1.05948, 9.25468, -6.73669 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 45)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 46)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 45)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 44)")
+
+[node name="Spiral Node (x 2) (step 45)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.190937, 0, -1.10868, 0, 1, 0, 1.10868, 0, 0.190937, -0.0489583, 9.25468, -6.54435 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 45)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 46)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 44)")
+
+[node name="Spiral Node (x 0) (step 46)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.453385, 0, -1.0296, 0, 1, 0, 1.0296, 0, 0.453385, 2.40777, 9.4578, -6.13833 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 47)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 46)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 45)")
+
+[node name="Spiral Node (x 1) (step 46)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.454013, 0, -1.02932, 0, 1, 0, 1.02932, 0, 0.454013, 1.37928, 9.4578, -5.68243 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 46)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 47)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 46)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 45)")
+
+[node name="Spiral Node (x 2) (step 46)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.45439, 0, -1.02915, 0, 1, 0, 1.02915, 0, 0.45439, 0.350799, 9.4578, -5.22653 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 46)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 47)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 45)")
+
+[node name="Spiral Node (x 0) (step 47)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.689792, 0, -0.888713, 0, 1, 0, 0.888713, 0, 0.689792, 2.83256, 9.66093, -5.42961 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 48)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 47)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 46)")
+
+[node name="Spiral Node (x 1) (step 47)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.690379, 0, -0.888258, 0, 1, 0, 0.888258, 0, 0.690379, 1.94567, 9.66093, -4.73748 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 47)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 48)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 47)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 46)")
+
+[node name="Spiral Node (x 2) (step 47)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.69073, 0, -0.887985, 0, 1, 0, 0.887985, 0, 0.69073, 1.05878, 9.66093, -4.04534 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 47)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 48)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 46)")
+
+[node name="Spiral Node (x 0) (step 48)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.885032, 0, -0.694509, 0, 1, 0, 0.694509, 0, 0.885032, 3.41682, 9.86405, -4.84535 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 49)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 48)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 47)")
+
+[node name="Spiral Node (x 1) (step 48)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.885498, 0, -0.693916, 0, 1, 0, 0.693916, 0, 0.885498, 2.72469, 9.86405, -3.95846 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 48)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 49)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 48)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 47)")
+
+[node name="Spiral Node (x 2) (step 48)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.885777, 0, -0.69356, 0, 1, 0, 0.69356, 0, 0.885777, 2.03256, 9.86405, -3.07157 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 48)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 49)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 47)")
+
+[node name="Spiral Node (x 0) (step 49)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.02732, 0, -0.458527, 0, 1, 0, 0.458527, 0, 1.02732, 4.12554, 10.0672, -4.42056 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 50)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 49)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 48)")
+
+[node name="Spiral Node (x 1) (step 49)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.02761, 0, -0.457869, 0, 1, 0, 0.457869, 0, 1.02761, 3.66965, 10.0672, -3.39208 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 49)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 50)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 49)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 48)")
+
+[node name="Spiral Node (x 2) (step 49)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.02779, 0, -0.457474, 0, 1, 0, 0.457474, 0, 1.02779, 3.21375, 10.0672, -2.36359 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 49)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 50)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 48)")
+
+[node name="Spiral Node (x 0) (step 50)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.108, 0, -0.194864, 0, 1, 0, 0.194864, 0, 1.108, 4.91623, 10.2703, -4.18071 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 51)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 50)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 49)")
+
+[node name="Spiral Node (x 1) (step 50)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.10811, 0, -0.19423, 0, 1, 0, 0.19423, 0, 1.10811, 4.7239, 10.2703, -3.07227 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 50)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 51)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 50)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 49)")
+
+[node name="Spiral Node (x 2) (step 50)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.10817, 0, -0.19385, 0, 1, 0, 0.19385, 0, 1.10817, 4.53157, 10.2703, -1.96383 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 50)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 51)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 49)")
+
+[node name="Spiral Node (x 0) (step 51)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.1221, 0, 0.0806582, 0, 1, 0, -0.0806582, 0, 1.1221, 5.74151, 10.4734, -4.14017 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 52)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 51)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 50)")
+
+[node name="Spiral Node (x 1) (step 51)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.12207, 0, 0.0811846, 0, 1, 0, -0.0811846, 0, 1.12207, 5.82427, 10.4734, -3.01821 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 51)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 52)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 51)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 50)")
+
+[node name="Spiral Node (x 2) (step 51)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.12204, 0, 0.0815002, 0, 1, 0, -0.0815002, 0, 1.12204, 5.90703, 10.4734, -1.89626 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 51)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 52)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 50)")
+
+[node name="Spiral Node (x 0) (step 52)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.06869, 0, 0.351452, 0, 1, 0, -0.351452, 0, 1.06869, 6.55191, 10.6765, -4.30137 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 53)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 52)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 51)")
+
+[node name="Spiral Node (x 1) (step 52)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.06858, 0, 0.351813, 0, 1, 0, -0.351813, 0, 1.06858, 6.9048, 10.6765, -3.23315 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 52)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 53)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 52)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 51)")
+
+[node name="Spiral Node (x 2) (step 52)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 1.0685, 0, 0.352029, 0, 1, 0, -0.352029, 0, 1.0685, 7.25769, 10.6765, -2.16493 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 52)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 53)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 51)")
+
+[node name="Spiral Node (x 0) (step 53)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.950907, 0, 0.601167, 0, 1, 0, -0.601167, 0, 0.950907, 7.29885, 10.8796, -4.65464 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 54)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 53)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 52)")
+
+[node name="Spiral Node (x 1) (step 53)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.950795, 0, 0.601344, 0, 1, 0, -0.601344, 0, 0.950795, 7.90072, 10.8796, -3.70418 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 53)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 54)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 53)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 52)")
+
+[node name="Spiral Node (x 2) (step 53)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.950728, 0, 0.60145, 0, 1, 0, -0.60145, 0, 0.950728, 8.50259, 10.8796, -2.75372 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 53)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 54)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 52)")
+
+[node name="Spiral Node (x 0) (step 54)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.775808, 0, 0.814707, 0, 1, 0, -0.814707, 0, 0.775808, 7.93756, 11.0828, -5.17882 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 55)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 54)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 53)")
+
+[node name="Spiral Node (x 1) (step 54)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.775789, 0, 0.814725, 0, 1, 0, -0.814725, 0, 0.775789, 8.75234, 11.0828, -4.40309 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 54)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 55)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 54)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 53)")
+
+[node name="Spiral Node (x 2) (step 54)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.775778, 0, 0.814735, 0, 1, 0, -0.814735, 0, 0.775778, 9.56712, 11.0828, -3.62736 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 54)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 55)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 53)")
+
+[node name="Spiral Node (x 0) (step 55)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.553956, 0, 0.979162, 0, 1, 0, -0.979162, 0, 0.553956, 8.42978, 11.2859, -5.84249 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 56)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 55)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 54)")
+
+[node name="Spiral Node (x 1) (step 55)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.554095, 0, 0.979083, 0, 1, 0, -0.979083, 0, 0.554095, 9.40862, 11.2859, -5.28798 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 55)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 56)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 55)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 54)")
+
+[node name="Spiral Node (x 2) (step 55)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.554178, 0, 0.979036, 0, 1, 0, -0.979036, 0, 0.554178, 10.3875, 11.2859, -4.73348 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 55)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 56)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 54)")
+
+[node name="Spiral Node (x 0) (step 56)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.298764, 0, 1.0846, 0, 1, 0, -1.0846, 0, 0.298764, 8.74597, 11.489, -6.60587 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 57)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 56)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 55)")
+
+[node name="Spiral Node (x 1) (step 56)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.299086, 0, 1.08451, 0, 1, 0, -1.08451, 0, 0.299086, 9.83022, 11.489, -6.30582 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 56)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 57)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 56)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 55)")
+
+[node name="Spiral Node (x 2) (step 56)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.299279, 0, 1.08446, 0, 1, 0, -1.08446, 0, 0.299279, 10.9145, 11.489, -6.00577 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 56)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 57)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 55)")
+
+[node name="Spiral Node (x 0) (step 57)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.0256535, 0, 1.12471, 0, 1, 0, -1.12471, 0, 0.0256535, 8.86721, 11.6921, -7.4232 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 58)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 57)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 56)")
+
+[node name="Spiral Node (x 1) (step 57)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.0261429, 0, 1.1247, 0, 1, 0, -1.1247, 0, 0.0261429, 9.99187, 11.6921, -7.39559 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 57)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 58)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 57)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 56)")
+
+[node name="Spiral Node (x 2) (step 57)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( 0.0264362, 0, 1.12469, 0, 1, 0, -1.12469, 0, 0.0264362, 11.1165, 11.6921, -7.36798 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 57)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 58)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 56)")
+
+[node name="Spiral Node (x 0) (step 58)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.248886, 0, 1.09712, 0, 1, 0, -1.09712, 0, -0.248886, 8.78622, 11.8953, -8.24549 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 59)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 58)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 57)")
+
+[node name="Spiral Node (x 1) (step 58)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.248286, 0, 1.09726, 0, 1, 0, -1.09726, 0, -0.248286, 9.88389, 11.8953, -8.49198 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 58)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 59)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 58)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 57)")
+
+[node name="Spiral Node (x 2) (step 58)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.247926, 0, 1.09734, 0, 1, 0, -1.09734, 0, -0.247926, 10.9816, 11.8953, -8.73847 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 58)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 59)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 57)")
+
+[node name="Spiral Node (x 0) (step 59)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.508323, 0, 1.00361, 0, 1, 0, -1.00361, 0, -0.508323, 8.50786, 12.0984, -9.02346 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 60)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 59)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 58)")
+
+[node name="Spiral Node (x 1) (step 59)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.507695, 0, 1.00393, 0, 1, 0, -1.00393, 0, -0.507695, 9.51274, 12.0984, -9.52928 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 59)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 60)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 59)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 58)")
+
+[node name="Spiral Node (x 2) (step 59)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.507319, 0, 1.00412, 0, 1, 0, -1.00412, 0, -0.507319, 10.5176, 12.0984, -10.0351 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 59)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 60)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 58)")
+
+[node name="Spiral Node (x 0) (step 60)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.737086, 0, 0.8499, 0, 1, 0, -0.8499, 0, -0.737086, 8.04881, 12.3015, -9.71048 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 61)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 60)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 59)")
+
+[node name="Spiral Node (x 1) (step 60)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.73652, 0, 0.85039, 0, 1, 0, -0.85039, 0, -0.73652, 8.90066, 12.3015, -10.4453 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 60)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 61)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 60)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 59)")
+
+[node name="Spiral Node (x 2) (step 60)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.736181, 0, 0.850684, 0, 1, 0, -0.850684, 0, -0.736181, 9.75252, 12.3015, -11.1801 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 60)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 61)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 59)")
+
+[node name="Spiral Node (x 0) (step 61)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.921508, 0, 0.645328, 0, 1, 0, -0.645328, 0, -0.921508, 7.43658, 12.5046, -10.2654 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 62)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 61)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 60)")
+
+[node name="Spiral Node (x 1) (step 61)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.921078, 0, 0.645942, 0, 1, 0, -0.645942, 0, -0.921078, 8.08436, 12.5046, -11.1852 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 61)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 62)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 61)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 60)")
+
+[node name="Spiral Node (x 2) (step 61)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -0.920819, 0, 0.646311, 0, 1, 0, -0.646311, 0, -0.920819, 8.73215, 12.5046, -12.1049 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 61)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 62)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 60)")
+
+[node name="Spiral Node (x 0) (step 62)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.05063, 0, 0.402243, 0, 1, 0, -0.402243, 0, -1.05063, 6.70787, 12.7078, -10.6549 )
+script = ExtResource( 2 )
+NodePathRight = NodePath("../Spiral Node (x 0) (step 63)")
+NodePathDown = NodePath("../Spiral Node (x 1) (step 62)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 61)")
+
+[node name="Spiral Node (x 1) (step 62)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.05038, 0, 0.402903, 0, 1, 0, -0.402903, 0, -1.05038, 7.11275, 12.7078, -11.7045 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 62)")
+NodePathRight = NodePath("../Spiral Node (x 1) (step 63)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 62)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 61)")
+
+[node name="Spiral Node (x 2) (step 62)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.05023, 0, 0.403298, 0, 1, 0, -0.403298, 0, -1.05023, 7.51763, 12.7078, -12.7541 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 62)")
+NodePathRight = NodePath("../Spiral Node (x 2) (step 63)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 61)")
+
+[node name="Spiral Node (x 0) (step 63)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.11684, 0, 0.135246, 0, 1, 0, -0.135246, 0, -1.11684, 5.90636, 12.9109, -10.8556 )
+script = ExtResource( 2 )
+NodePathDown = NodePath("../Spiral Node (x 1) (step 63)")
+NodePathLeft = NodePath("../Spiral Node (x 0) (step 62)")
+
+[node name="Spiral Node (x 1) (step 63)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.11677, 0, 0.135862, 0, 1, 0, -0.135862, 0, -1.11677, 6.04407, 12.9109, -11.9722 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 0) (step 63)")
+NodePathDown = NodePath("../Spiral Node (x 2) (step 63)")
+NodePathLeft = NodePath("../Spiral Node (x 1) (step 62)")
+
+[node name="Spiral Node (x 2) (step 63)" type="Spatial" parent="Spiral Nodes"]
+transform = Transform( -1.11672, 0, 0.136231, 0, 1, 0, -0.136231, 0, -1.11672, 6.18178, 12.9109, -13.0887 )
+script = ExtResource( 2 )
+NodePathUp = NodePath("../Spiral Node (x 1) (step 63)")
+NodePathLeft = NodePath("../Spiral Node (x 2) (step 62)")
+
+[node name="Map Geometry" type="Node" parent="."]
+
+[node name="Light Tube Blue" type="MeshInstance" parent="Map Geometry"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, 4 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="Map Geometry/Light Tube Blue"]
+layers = 3
+light_color = Color( 0.0509804, 0.552941, 1, 1 )
+light_energy = 10.35
+
+[node name="Light Tube Orange" type="MeshInstance" parent="Map Geometry"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4, 1, 4 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="Map Geometry/Light Tube Orange"]
+layers = 3
+light_color = Color( 1, 0.670588, 0.027451, 1 )
+light_energy = 10.64
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Map Geometry"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.99481, -3.464 )
+extents = Vector3( 13.4655, 8.70018, 12.2431 )
+box_projection = true
+
+[node name="Spiral" type="MeshInstance" parent="Map Geometry"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.5, 0, -7.5 )
+material_override = ExtResource( 4 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="Starting Platform" type="MeshInstance" parent="Map Geometry"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0.5, -0.5, 0.5 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 4 )
+
+[node name="Map Objects" type="Node" parent="."]
+
+[node name="AI Wander Character" parent="Map Objects" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43141, 0.894435, -5.35155 )
+
+[node name="AI Wander Character2" parent="Map Objects" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3 )
+
+[node name="AI Wander Character3" parent="Map Objects" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4 )
+
+[node name="AI Wander Character4" parent="Map Objects" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
+
+[node name="AI Wander Character5" parent="Map Objects" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5.97242, -3 )
+
+[node name="AI Wander Character6" parent="Map Objects" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01451, 12.6155, -11.757 )

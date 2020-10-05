@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Spiral.obj-a50a8c0a16347a63dc322ac109bfe8ca.mesh"
+
+[deps]
+
+files=[ "res://.import/Spiral.obj-a50a8c0a16347a63dc322ac109bfe8ca.mesh" ]
+
+source_file="res://Graphics/Models/Spiral.obj"
+dest_files=[ "res://.import/Spiral.obj-a50a8c0a16347a63dc322ac109bfe8ca.mesh", "res://.import/Spiral.obj-a50a8c0a16347a63dc322ac109bfe8ca.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
