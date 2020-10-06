@@ -28,5 +28,8 @@ public class PlayerInput : Node {
 		} else if(Input.IsActionPressed("game_left") == true) {
 			CharacterController.GiveInput(Direction.Left, movementType);
 		}
+		if(Input.IsActionJustPressed("game_interact") == true) {
+			CharacterController.InteractWithObjectInFront();
+		}
 	}
 }

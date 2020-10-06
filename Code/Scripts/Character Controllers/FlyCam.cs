@@ -2,6 +2,7 @@ using Godot;
 using System;
 
 public class FlyCam : Spatial {
+	/*
 	[Export]
 	private float MovementSpeed = 2.0f;
 	[Export]
@@ -68,4 +69,5 @@ public class FlyCam : Spatial {
 			//Input.WarpMousePosition(new Vector2(512, 512));
 		}
 	}
+	//*/
 }

@@ -12,6 +12,8 @@ public class MapManager : Node {
 	
 	private List<MapObject> AllMapObjects = new List<MapObject>();
 
+	private bool MovementLocked = false;
+
 	public override void _EnterTree() {
 		base._EnterTree();
 		Instance = this;
@@ -34,6 +36,16 @@ public class MapManager : Node {
 				GD.PrintErr(loadErr);
 			}
 		}
+	}
+
+	public static bool IsMovementLocked() {
+		return Instance.MovementLocked;
+	}
+	public static void LockAll() {
+		Instance.MovementLocked = true;
+	}
+	public static void ReleaseAll() {
+		Instance.MovementLocked = false;
 	}
 
 	public static MapNode GetClosestNode(Vector3 position) {
@@ -85,6 +97,14 @@ public class MapManager : Node {
 			}
 		}
 		return occupants;
+	}
+	public static MapObject GetFirstOccupant(MapNode node) {
+		foreach(MapObject mapObject in Instance.AllMapObjects) {
+			if(mapObject.GetCurrentNode() == node) {
+				return mapObject;
+			}
+		}
+		return null;
 	}
 
 	public static bool IsTraversable(MapNode node) {

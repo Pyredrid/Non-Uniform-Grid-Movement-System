@@ -57,7 +57,7 @@ public class MapObject : Spatial {
 		CurrentNode = nextNode;
 		CurrentNode.EmitSignal(nameof(MapNode.SteppedOn));
 		EmitSignal(nameof(OnMove), dir, false);
-		return false;
+		return true;
 	}
 	
 	public bool Warp(MapNode destination) {
@@ -67,8 +67,8 @@ public class MapObject : Spatial {
 		EmitSignal(nameof(OnMove), Direction.None, true);
 		return false;
 	}
-	
-	public void InteractWith(Direction directionFrom, Node interactor) {
+
+	public void InteractWithThis(Direction directionFrom, Node interactor) {
 		EmitSignal(nameof(OnInteractedWith), directionFrom, interactor);
 	}
 

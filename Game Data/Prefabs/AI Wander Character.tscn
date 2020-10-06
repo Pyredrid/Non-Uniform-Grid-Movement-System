@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Code/Scripts/Map/MapObject.cs" type="Script" id=1]
 [ext_resource path="res://Code/Scripts/Character Controllers/WanderInput.cs" type="Script" id=2]
 [ext_resource path="res://Graphics/Sprites/aaronneutral_01.png" type="Texture" id=3]
 [ext_resource path="res://Code/Scripts/Character Controllers/CharacterController.cs" type="Script" id=4]
+[ext_resource path="res://Code/Scripts/Map/Map Interactions/DialogueOnInteract.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle_Down"
@@ -244,3 +245,12 @@ script = ExtResource( 2 )
 CharacterControllerPath = NodePath("..")
 WanderTimeMin = 1.0
 WanderTimeMax = 2.0
+
+[node name="Testing Dialogue" type="Node" parent="Character Controller"]
+script = ExtResource( 5 )
+TextBoxPrefab = "res://Game Data/Prefabs/TestingDialogueBox.tscn"
+Dialogue = "This is something an NPC would say, right...?
+Maybe, maybe not, oh well!
+"
+MapObjectPath = NodePath("../..")
+CharacterControllerPath = NodePath("..")

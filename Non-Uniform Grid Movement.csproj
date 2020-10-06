@@ -68,10 +68,12 @@
     <Compile Include="Code\Scripts\Editor%20Tools\MapNodeGridGenerator.cs" />
     <Compile Include="Code\Scripts\Editor%20Tools\MapNodeSpiralGenerator.cs" />
     <Compile Include="Code\Scripts\General\Direction.cs" />
+    <Compile Include="Code\Scripts\Map\Map%20Interactions\DialogueOnInteract.cs" />
     <Compile Include="Code\Scripts\Map\Map.cs" />
     <Compile Include="Code\Scripts\Map\MapManager.cs" />
     <Compile Include="Code\Scripts\Map\MapNode.cs" />
     <Compile Include="Code\Scripts\Map\MapObject.cs" />
+    <Compile Include="Code\Scripts\UI\Dialogue\TextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

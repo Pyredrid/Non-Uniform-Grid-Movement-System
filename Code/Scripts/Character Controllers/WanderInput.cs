@@ -26,6 +26,10 @@ public class WanderInput : Node {
 	}
 
 	public override void _Process(float delta) {
+		if(MapManager.IsMovementLocked() == true) {
+			return;
+		}
+		
 		WanderCooldown -= delta;
 		if(WanderCooldown <= 0.0f && Wander() == true) {
 			WanderCooldown = Rand.RandfRange(WanderTimeMin, WanderTimeMax);
@@ -41,20 +45,23 @@ public class WanderInput : Node {
 		};
 		Direction dir = Direction.None;
 
-		if(WanderY >= WanderHeight) {
+		if(WanderY > WanderHeight) {
 			possibleDirections[0] = Direction.None;
 		}
-		if(WanderX >= WanderWidth) {
+		if(WanderX > WanderWidth) {
 			possibleDirections[1] = Direction.None;
 		}
-		if(WanderY <= -WanderHeight) {
+		if(WanderY < -WanderHeight) {
 			possibleDirections[2] = Direction.None;
 		}
-		if(WanderX <= -WanderWidth) {
+		if(WanderX < -WanderWidth) {
 			possibleDirections[3] = Direction.None;
 		}
 
 		dir = Rand.Pick(possibleDirections);
+		if(dir == Direction.None) {
+			return false;
+		}
 
 		if(CharacterController.GiveInput(dir, CharacterMovementType.Walk) == false) {
 			return false;
@@ -72,8 +79,6 @@ public class WanderInput : Node {
 				break;
 			case Direction.Left:
 				WanderX--;
-				break;
-			default:
 				break;
 		}
 		return true;

@@ -1,6 +1,8 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class CharacterController : Node {
 	[Export]
@@ -31,9 +33,6 @@ public class CharacterController : Node {
 	private Direction CurrentDirection = Direction.Down;
 	private Direction FacingDirection = Direction.Down;
 
-	//TODO:  Make this an enum for different types of movement
-	//Like walking, running, sprinting, crawling, swimming, sneaking...
-	//TODO: Also a colliding animation
 	public CharacterMovementType MovementType = CharacterMovementType.Idle;
 
 	public override void _Ready() {
@@ -46,14 +45,26 @@ public class CharacterController : Node {
 	
 	public override void _Process(float delta) {
 		UpdateAnimation();
-		if(MoveCooldown > 0.0f) {
-			HandleMoving(delta);
-		}
 		if(MapObject.GetCurrentNode() != null) {
 			HandleCameraFacingDirection(GetViewport().GetCamera());
 		}
+		if(MoveCooldown > 0.0f) {
+			HandleMoving(delta);
+		}
 	}
-	
+
+	public void InteractWithObjectInFront() {
+		MapNode nodeInFront = MapObject.GetCurrentNode().GetAdjacentNode(CurrentDirection);
+		if(nodeInFront == null) {
+			return;
+		}
+		MapObject objectInFront = MapManager.GetFirstOccupant(nodeInFront);
+		if(objectInFront == null) {
+			return;
+		}
+		objectInFront.InteractWithThis(CurrentDirection, this);
+	}
+
 	public Direction GetCurrentDirection() {
 		return CurrentDirection;
 	}
@@ -62,12 +73,20 @@ public class CharacterController : Node {
 		if(dir == Direction.None) {
 			return false;
 		}
+		if(MapManager.IsMovementLocked() == true) {
+			return false;
+		}
 		if(MoveCooldown > 0.0f) {
 			return false;
 		}
 		MovementType = movementType;
 		CurrentDirection = dir;
-		MapObject.Move(dir);
+		if(movementType != CharacterMovementType.Idle) {
+			if(MapObject.Move(dir) == false) {
+				MovementType = CharacterMovementType.Idle;
+				return false;
+			}
+		}
 		return true;
 	}
 	
@@ -123,12 +142,14 @@ public class CharacterController : Node {
 			MapObject.Translation = TargetTranslation;
 			MapObject.Rotation = TargetRotation.GetEuler();
 			MovementInterpolation = 1.0f;
-			
+			MovementType = CharacterMovementType.Idle;
+
 			MoveCooldown = 0.0f;
 		}
 	}
 }
 
+//TODO: More movement types such as collision
 public enum CharacterMovementType {
 	Idle = 0,
 	Walk = 1,
