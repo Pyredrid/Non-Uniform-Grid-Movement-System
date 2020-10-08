@@ -250,7 +250,6 @@ WanderTimeMax = 2.0
 script = ExtResource( 5 )
 TextBoxPrefab = "res://Game Data/Prefabs/TestingDialogueBox.tscn"
 Dialogue = "This is something an NPC would say, right...?
-Maybe, maybe not, oh well!
-"
+Maybe, maybe not, oh well!"
 MapObjectPath = NodePath("../..")
 CharacterControllerPath = NodePath("..")

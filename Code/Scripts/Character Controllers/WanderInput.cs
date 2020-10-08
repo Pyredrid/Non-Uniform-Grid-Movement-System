@@ -1,6 +1,10 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Gives input to a character controller that randomly
+/// walks the character around an area.
+/// </summary>
 public class WanderInput : Node {
 	[Export]
 	private NodePath CharacterControllerPath = "CharacterController";
@@ -31,7 +35,8 @@ public class WanderInput : Node {
 		}
 		
 		WanderCooldown -= delta;
-		if(WanderCooldown <= 0.0f && Wander() == true) {
+		if(WanderCooldown <= 0.0f) {
+			Wander();
 			WanderCooldown = Rand.RandfRange(WanderTimeMin, WanderTimeMax);
 		}
 	}
@@ -43,7 +48,6 @@ public class WanderInput : Node {
 			Direction.Down,
 			Direction.Left,
 		};
-		Direction dir = Direction.None;
 
 		if(WanderY > WanderHeight) {
 			possibleDirections[0] = Direction.None;
@@ -58,6 +62,7 @@ public class WanderInput : Node {
 			possibleDirections[3] = Direction.None;
 		}
 
+		Direction dir = Direction.None;
 		dir = Rand.Pick(possibleDirections);
 		if(dir == Direction.None) {
 			return false;
@@ -81,6 +86,7 @@ public class WanderInput : Node {
 				WanderX--;
 				break;
 		}
+		
 		return true;
 	}
 }

@@ -1,6 +1,11 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Mostly made as a test script for more 
+/// complex behaviours, handles extremely 
+/// basic NPC dialogue.
+/// </summary>
 public class DialogueOnInteract : Node {
 	[Export(PropertyHint.File)]
 	private string TextBoxPrefab;
@@ -36,6 +41,7 @@ public class DialogueOnInteract : Node {
 		DialogueTextBox.Connect(nameof(TextBox.OnTextCompleted), this, nameof(OnTextCompleted_ReleaseAll));
 	}
 	
+	//A callback to cleanup vairables and release MapObjects again
 	private void OnTextCompleted_ReleaseAll() {
 		MapManager.ReleaseAll();
 		DialogueTextBox = null;

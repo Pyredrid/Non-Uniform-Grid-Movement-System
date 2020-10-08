@@ -1,11 +1,16 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Takes keyboard input and uses 
+/// that to give input to a CharacterController.
+/// </summary>
 public class PlayerInput : Node {
 	[Export]
 	private NodePath CharacterControllerPath = "CharacterController";
 	private CharacterController CharacterController;
 	
+	//Loads this map on ready, mostly just for testing right now...
 	[Export(PropertyHint.File)]
 	private string InitialMap = "";
 	

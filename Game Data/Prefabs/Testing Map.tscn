@@ -2258,19 +2258,4 @@ material/0 = ExtResource( 4 )
 [node name="Map Objects" type="Node" parent="."]
 
 [node name="AI Wander Character" parent="Map Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43141, 0.894435, -5.35155 )
-
-[node name="AI Wander Character2" parent="Map Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3 )
-
-[node name="AI Wander Character3" parent="Map Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4 )
-
-[node name="AI Wander Character4" parent="Map Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
-
-[node name="AI Wander Character5" parent="Map Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5.97242, -3 )
-
-[node name="AI Wander Character6" parent="Map Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01451, 12.6155, -11.757 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.962601, -0.107414, 3.54732 )

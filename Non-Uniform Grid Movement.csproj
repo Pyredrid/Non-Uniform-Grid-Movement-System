@@ -61,10 +61,8 @@
     <Compile Include="Code\Extensions\SpatialExtensions.cs" />
     <Compile Include="Code\Extensions\VectorExtensions.cs" />
     <Compile Include="Code\Scripts\Character%20Controllers\CharacterController.cs" />
-    <Compile Include="Code\Scripts\Character%20Controllers\FlyCam.cs" />
     <Compile Include="Code\Scripts\Character%20Controllers\PlayerInput.cs" />
     <Compile Include="Code\Scripts\Character%20Controllers\WanderInput.cs" />
-    <Compile Include="Code\Scripts\Constraints\EnforceUp.cs" />
     <Compile Include="Code\Scripts\Editor%20Tools\MapNodeGridGenerator.cs" />
     <Compile Include="Code\Scripts\Editor%20Tools\MapNodeSpiralGenerator.cs" />
     <Compile Include="Code\Scripts\General\Direction.cs" />

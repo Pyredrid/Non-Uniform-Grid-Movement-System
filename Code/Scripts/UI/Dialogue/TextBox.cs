@@ -1,7 +1,16 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Prints text character by character at a set rate
+/// for RPG styled dialogue.
+/// </summary>
 public class TextBox : Node {
+	/// <summary>
+	/// Signal emitted when all text is finished 
+	/// displaying and the textbox is about to be 
+	/// closed and freed.
+	/// </summary>
 	[Signal]
 	public delegate void OnTextCompleted();
 	
@@ -19,7 +28,6 @@ public class TextBox : Node {
 
 	public override void _Ready() {
 		base._Ready();
-
 		TextLabel = GetNode<RichTextLabel>(TextLabelPath);
 	}
 
@@ -30,11 +38,13 @@ public class TextBox : Node {
 		
 		TextLabel.Text = CurrentText;
 
-		//Pressing interact again skips to the next newline immeaadiately
-		//Displaying all the inbetween text without pause
-		if(IsPausedOnNewLine == false 
-		&& CurrentTextIndex < TotalText.Length 
-		&& Input.IsActionJustPressed("game_interact") == true
+		//Pressing interact again skips to the next newline immeadiately
+		//Displaying all the inbetween text without pause.
+		//aka, Allows button mashing through text, but even *faster*
+		//than some other games.
+		if( IsPausedOnNewLine == false 
+			&& CurrentTextIndex < TotalText.Length 
+			&& Input.IsActionJustPressed("game_interact") == true
 		) {
 			string currentCharacter = TotalText[CurrentTextIndex].ToString();
 			DialogueTimer = 0.0f;
@@ -55,6 +65,8 @@ public class TextBox : Node {
 			return;
 		}
 
+		//Displays text based on either a timer or handles logic for when
+		//there's a pause in text being displayed.
 		while(DialogueTimer > SecondsPerCharacter || IsPausedOnNewLine == true) {
 			//End of text
 			if(CurrentTextIndex >= TotalText.Length) {
@@ -68,18 +80,7 @@ public class TextBox : Node {
 			}
 
 			string currentCharacter = TotalText[CurrentTextIndex].ToString();
-			if(currentCharacter.Equals("\n") == true) {
-				//Newlines pause adding new characters until additional input is given
-				//TODO: Use a special character to be able to pause part way through?
-				IsPausedOnNewLine = true;
-				if(Input.IsActionJustPressed("game_interact") == true) {
-					CurrentText += currentCharacter;
-					DialogueTimer = 0.0f;
-					CurrentTextIndex++;
-					IsPausedOnNewLine = false;
-				}
-				return;
-			} else {
+			if(IsPausedOnNewLine == false) {
 				if(currentCharacter.Equals(".") == true || currentCharacter.Equals(",") == true) {
 					//Some punctuation increases the time between characters
 					//TODO: Check if a character is punctuation some other way?
@@ -90,13 +91,34 @@ public class TextBox : Node {
 				CurrentText += currentCharacter;
 				CurrentTextIndex++;
 			}
+
+			//Newlines pause adding new characters until additional input is given
+			//TODO: Use a special character to be able to pause part way through?
+			if(CurrentTextIndex < TotalText.Length) {
+				currentCharacter = TotalText[CurrentTextIndex].ToString();
+				if(currentCharacter.Equals("\n") == true) {
+					IsPausedOnNewLine = true;
+				}
+			}
+
 			//Prevents infinite loops
 			if(IsPausedOnNewLine == true) {
+				if(Input.IsActionJustPressed("game_interact") == true) {
+					CurrentText += currentCharacter;
+					DialogueTimer = 0.0f;
+					CurrentTextIndex++;
+					IsPausedOnNewLine = false;
+				}
 				return;
 			}
 		}
 	}
 	
+	/// <summary>
+	/// Sets the text that will be displayed and resets 
+	/// internal variables for displaying that text.
+	/// </summary>
+	/// <param name="newText">New text to be displayed</param>
 	public void SetText(string newText) {
 		TotalText = newText;
 		CurrentText = "";

@@ -4,6 +4,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Handles higher-level movement of a MapObject for
+/// behaviours like the Player and NPCs.
+/// </summary>
 public class CharacterController : Node {
 	[Export]
 	private NodePath MapObjectPath = "MapObject";
@@ -20,7 +24,7 @@ public class CharacterController : Node {
 
 	private MapObject MapObject;
 	private AnimationPlayer AnimationPlayer;
-	//TODO: Decouple the character controller code from the graphics code?
+	//TODO: Decouple the character controller code from the graphics code
 	private Sprite3D Sprite3D;
 
 	private Vector3 PreviousTranslation;
@@ -52,7 +56,15 @@ public class CharacterController : Node {
 			HandleMoving(delta);
 		}
 	}
-
+	
+	/// <summary>
+	/// Interacts with the MapObject in front of 
+	/// this CharacterController if there is one.
+	/// 
+	/// If there are multiple MapObjects in front, 
+	/// only interacts with the first one...
+	/// </summary>
+	//TODO: Some sort of priority system or extra UI for interacting with multiple mapobjects on one node?
 	public void InteractWithObjectInFront() {
 		MapNode nodeInFront = MapObject.GetCurrentNode().GetAdjacentNode(CurrentDirection);
 		if(nodeInFront == null) {
@@ -69,6 +81,13 @@ public class CharacterController : Node {
 		return CurrentDirection;
 	}
 
+	/// <summary>
+	/// Moves this CharacterController in a 
+	/// direction with a given animation.
+	/// 
+	/// If the given input fails, returns <see langword="false"/>.
+	/// </summary>
+	/// <returns><c>true</c>, if input was accepted, <c>false</c> otherwise.</returns>
 	public bool GiveInput(Direction dir, CharacterMovementType movementType) {
 		if(dir == Direction.None) {
 			return false;
@@ -90,6 +109,11 @@ public class CharacterController : Node {
 		return true;
 	}
 	
+	/// <summary>
+	/// Uses CurrentDirection and the given Camera's
+	/// direction to "turn" the sprite a la Doom so it appears
+	/// to be facing properly.
+	/// </summary>
 	private void HandleCameraFacingDirection(Camera camera) {
 		if(IgnoreFacingCamera == true) {
 			FacingDirection = CurrentDirection;
@@ -111,13 +135,17 @@ public class CharacterController : Node {
 		if(MovementType == CharacterMovementType.Run) {
 			speed *= RunMultiplier;
 		}
+		
 		//Handle cooldown and interpolation
 		MoveCooldown -= (speed * delta);
 
 		if(MoveCooldown <= 0.0f) {
+			//Movement is done, instead of interpolating,
+			//we'll just set the correct position/rotation
 			MapObject.Translation = TargetTranslation;
 			MapObject.Rotation = TargetRotation.GetEuler();
 			MovementInterpolation = 1.0f;
+			//Always Idle after moving
 			MovementType = CharacterMovementType.Idle;
 		} else {
 			MovementInterpolation += (speed * delta);
@@ -127,6 +155,10 @@ public class CharacterController : Node {
 		}
 	}
 
+	/// <summary>
+	/// Actually starts the process for moving 
+	/// the MapObject in the world based on its position.
+	/// </summary>
 	protected void OnMove_HandlePosition(Direction dir, bool isWarp) {
 		PreviousTranslation = MapObject.Translation;
 		TargetTranslation = MapObject.GetCurrentNode().Translation;

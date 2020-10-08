@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 [Tool]
 public class MapNodeSpiralGenerator : Node {
+	//This whole "Editor Script" is hacky af
+	//I would seriously be careful using this...
 	[Export]
 	public bool GenerateSpiral {
 		get => false;

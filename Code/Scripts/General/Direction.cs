@@ -1,6 +1,11 @@
 using Godot;
 using System;
 
+/// <summary>
+/// An enum to simplify working with the 4
+/// cardinal directions.  Direction.None is 
+/// to handle edgecases mostly.
+/// </summary>
 public enum Direction {
 	None = -1,
 	Up = 0,
@@ -10,6 +15,12 @@ public enum Direction {
 }
 
 public static class DirectionUtilities {
+	/// <summary>
+	/// Given a directional Vector3, returns the closest 
+	/// Direction enum in worldspace.
+	/// </summary>
+	/// <param name="direction">A normalized direction</param>
+	//TODO: Figure out some of the edgecases this seems to have...
 	public static Direction GetClosestDirection(Vector3 direction) {
 		float dDotF = direction.Dot(Vector3.Forward);
 		float dDotB = direction.Dot(Vector3.Back);
@@ -33,33 +44,35 @@ public static class DirectionUtilities {
 }
 
 public static class DirectionExtensions {
-	public static Vector3 Vector3(this Direction dir) {
+	/// <summary>
+	/// Returns a directional Vector3 for this Direction using
+	/// Godot's coordinate system.
+	/// </summary>
+	public static Vector3 ToVector3(this Direction dir) {
 		switch(dir) {
 			case Direction.None:
-				return new Vector3(0, 0, 0);
+				return Vector3.Zero;
 			case Direction.Up:
-				return new Vector3(0, 0, -1);
+				return Vector3.Forward;
 			case Direction.Right:
-				return new Vector3(1, 0, 0);
+				return Vector3.Right;
 			case Direction.Down:
-				return new Vector3(0, 0, 1);
+				return Vector3.Back;
 			case Direction.Left:
-				return new Vector3(-1, 0, 0);
+				return Vector3.Left;
 		}
-		return new Vector3(0, 0, 0);
+		return Vector3.Zero;
 	}
+	
+	/// <summary>
+	/// Returns a rotated direction based on the 
+	/// new given "Up" direction.  
+	/// e.g. Right when facing Up is Right, but Right when facing Down is Left
+	/// </summary>
 	public static Direction AdjustUp(this Direction dir, Direction newUp) {
 		if(newUp == Direction.Up) {
-			switch(dir) {
-				case Direction.Up:
-					return Direction.Up;
-				case Direction.Right:
-					return Direction.Right;
-				case Direction.Down:
-					return Direction.Down;
-				case Direction.Left:
-					return Direction.Left;
-			}
+			//Up from Up is Up and same with every other direction  :v
+			return dir;
 		}
 		if(newUp == Direction.Right) {
 			switch(dir) {
@@ -99,6 +112,10 @@ public static class DirectionExtensions {
 		}
 		return Direction.None;
 	}
+	
+	/// <summary>
+	/// Returns the opposite of this direction.
+	/// </summary>
 	public static Direction Opposite(this Direction dir) {
 		switch(dir) {
 			case Direction.Up:
