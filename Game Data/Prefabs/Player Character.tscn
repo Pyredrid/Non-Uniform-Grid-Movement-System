@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Code/Scripts/Map/MapObject.cs" type="Script" id=1]
 [ext_resource path="res://Code/Scripts/Character Controllers/PlayerInput.cs" type="Script" id=2]
 [ext_resource path="res://Graphics/Sprites/aaronneutral_01.png" type="Texture" id=3]
 [ext_resource path="res://Code/Scripts/Character Controllers/CharacterController.cs" type="Script" id=4]
+[ext_resource path="res://Code/Scripts/Character Controllers/HumanoidCharacterGraphics.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle_Down"
@@ -222,6 +223,9 @@ anims/Walk_Up = SubResource( 12 )
 
 [node name="Camera Target" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.797636, 0.603139, 0, -0.603139, 0.797636, 0, 6.43995, 7.83975 )
+__meta__ = {
+"_editor_description_": "Was using for the interpolated camera, might still have use later?"
+}
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.797636, 0.603139, 0, -0.603139, 0.797636, 0, 6.43995, 7.83975 )
@@ -239,13 +243,16 @@ vframes = 4
 hframes = 3
 frame = 3
 
+[node name="Character Graphics" type="Node" parent="."]
+script = ExtResource( 5 )
+CharacterControllerPath = NodePath("../Character Controller")
+AnimationPlayerPath = NodePath("../AnimationPlayer")
+IgnoreFacingCamera = true
+
 [node name="Character Controller" type="Node" parent="."]
 script = ExtResource( 4 )
 MapObjectPath = NodePath("../../Player Character")
-AnimationPlayerPath = NodePath("../../Player Character/AnimationPlayer")
-Sprite3DPath = NodePath("../Sprite3D")
 Speed = 4.5
-IgnoreFacingCamera = true
 
 [node name="Player Input" type="Node" parent="Character Controller"]
 script = ExtResource( 2 )

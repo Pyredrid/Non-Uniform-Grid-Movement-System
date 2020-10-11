@@ -19,6 +19,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+//TODO: An editor addon to "link" MapNodes more easily in the scene editor
+//Something like dragging a handle from a node onto another node?
+//Maybe where holding down a key would make the link one-way?
+//Would need to specify which direction the node travel is in
+//Or use the direction vector to automatically determine wtih dot products
 public class MapNode : Spatial {
 	[Signal]
 	public delegate void SteppedOn();

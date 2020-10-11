@@ -24,23 +24,17 @@ using System.Collections.Generic;
 /// behaviours like the Player and NPCs.
 /// </summary>
 public class CharacterController : Node {
+	[Signal]
+	public delegate void OnInput(Direction dir, CharacterMovementType movementType);
+
 	[Export]
 	private NodePath MapObjectPath = "MapObject";
-	[Export]
-	private NodePath AnimationPlayerPath = "AnimationPlayer";
-	[Export]
-	private NodePath Sprite3DPath = "Sprite3D";
 	[Export]
 	private float Speed = 8.0f;
 	[Export]
 	private float RunMultiplier = 1.5f;
-	[Export]
-	public bool IgnoreFacingCamera = false;
 
 	private MapObject MapObject;
-	private AnimationPlayer AnimationPlayer;
-	//TODO: Decouple the character controller code from the graphics code
-	private Sprite3D Sprite3D;
 
 	private Vector3 PreviousTranslation;
 	private Vector3 TargetTranslation;
@@ -50,23 +44,19 @@ public class CharacterController : Node {
 	
 	private float MoveCooldown = -1.0f;
 	private Direction CurrentDirection = Direction.Down;
-	private Direction FacingDirection = Direction.Down;
 
-	public CharacterMovementType MovementType = CharacterMovementType.Idle;
+	//Mostly determines what animation to use when moving
+	//Should also consider using for special behaviours
+	//by check it somehow on certain OnMoved or OnStepped signals
+	private CharacterMovementType MovementType = CharacterMovementType.Idle;
 
 	public override void _Ready() {
 		MapObject = GetNode<MapObject>(MapObjectPath);
-		AnimationPlayer = GetNode<AnimationPlayer>(AnimationPlayerPath);
-		Sprite3D = GetNode<Sprite3D>(Sprite3DPath);
 
 		MapObject.Connect(nameof(MapObject.OnMove), this, nameof(OnMove_HandlePosition));
 	}
 	
 	public override void _Process(float delta) {
-		UpdateAnimation();
-		if(MapObject.GetCurrentNode() != null) {
-			HandleCameraFacingDirection(GetViewport().GetCamera());
-		}
 		if(MoveCooldown > 0.0f) {
 			HandleMoving(delta);
 		}
@@ -92,8 +82,16 @@ public class CharacterController : Node {
 		objectInFront.InteractWithThis(CurrentDirection, this);
 	}
 
+	public MapObject GetMapObject() {
+		return MapObject;
+	}
+
 	public Direction GetCurrentDirection() {
 		return CurrentDirection;
+	}
+
+	public CharacterMovementType GetMovementType(){
+		return MovementType;
 	}
 
 	/// <summary>
@@ -121,28 +119,8 @@ public class CharacterController : Node {
 				return false;
 			}
 		}
+		EmitSignal(nameof(OnInput), dir, movementType);
 		return true;
-	}
-	
-	/// <summary>
-	/// Uses CurrentDirection and the given Camera's
-	/// direction to "turn" the sprite a la Doom so it appears
-	/// to be facing properly.
-	/// </summary>
-	private void HandleCameraFacingDirection(Camera camera) {
-		if(IgnoreFacingCamera == true) {
-			FacingDirection = CurrentDirection;
-			return;
-		}
-		Vector3 cameraForward = -camera.GlobalTransform.basis.z;
-		Vector3 currentNodeForward = -MapObject.GetCurrentNode().GlobalTransform.basis.z;
-		Direction cameraDirection = DirectionUtilities.GetClosestDirection(cameraForward);
-		Direction currentNodeDirection = DirectionUtilities.GetClosestDirection(currentNodeForward);
-		FacingDirection = CurrentDirection.AdjustUp(cameraDirection.AdjustUp(currentNodeDirection));
-	}
-
-	private void UpdateAnimation() {
-		AnimationPlayer.Play(MovementType.ToString() + "_" + FacingDirection.ToString());
 	}
 
 	private void HandleMoving(float delta) {
@@ -196,7 +174,7 @@ public class CharacterController : Node {
 	}
 }
 
-//TODO: More movement types such as collision
+//TODO: More movement types such as collision with walls, maybe crawling and jumping?
 public enum CharacterMovementType {
 	Idle = 0,
 	Walk = 1,
